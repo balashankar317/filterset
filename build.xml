@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="filterset" basedir="." default="copyConfigFiles">
+    <property file="build.properties"/>
+
+    <target name="copyConfigFiles">
+
+        <!-- <copy file="src/db.properties" todir="build/classes/">
+            <filterset begintoken="#{" endtoken="}">
+                <filter token="driverClassName" value="${driverClassName}"/>
+                <filter token="url" value="${url}"/>
+                <filter token="username" value="${username}"/>
+                <filter token="password" value="${password}"/>
+            </filterset>
+        </copy> -->
+        <copy file="src/db.properties" todir="build/classes/">
+            <filterset begintoken="#{" endtoken="}">
+                <filtersfile file="build.properties"/>
+            </filterset>
+        </copy>
+    </target>
+</project>
